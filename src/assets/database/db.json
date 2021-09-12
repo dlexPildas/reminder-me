@@ -1,0 +1,20 @@
+{
+  "database": "remember-db",
+  "version": 1,
+  "encrypted": false,
+  "mode": "full",
+  "tables": [
+    {
+      "name": "reminders",
+      "schema": [
+        { "column": "id", "value": "INTEGER PRIMARY KEY NOT NULL" },
+        { "column": "reminderDate", "value": "TEXT NOT NULL" },
+        { "column": "description", "value": "TEXT NOT NULL" },
+        { "column": "icon", "value": "TEXT NOT NULL" }
+      ],
+      "values": [
+        [1, "", "Lavar o cabelo", "happy"]
+      ]
+    }
+  ]
+}

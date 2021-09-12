@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item lines="none">
+    <ion-toggle [(ngModel)]="enableNotifications" color="primary"></ion-toggle>
+    <ion-label>Enable notifications</ion-label>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-toggle disabled="true" color="primary"></ion-toggle>
+    <ion-label>Send Email</ion-label>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label>notifier before reminder</ion-label>
+    <ion-select value="5" okText="ok" cancelText="cancel">
+      <ion-select-option class="font-weight-bold" value="5">5 minutes</ion-select-option>
+      <ion-select-option value="10">15 minutes</ion-select-option>
+      <ion-select-option value="30">30 minutes</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+  <div class="box-input">
+    <label>Did you find an error?</label>
+    <textarea [(ngModel)]="messageErrorInApp" class="input" [rows]="4"></textarea>
+    <div *ngIf="messageErrorInApp.length > 0">
+      <ion-button color="medium">Send</ion-button>
+    </div>
+  </div>
+</ion-content>

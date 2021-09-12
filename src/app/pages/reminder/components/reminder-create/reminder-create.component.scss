@@ -1,0 +1,40 @@
+.box-input {
+  margin-bottom: 10px;
+
+  textarea {
+    padding-top: 10px;
+  }
+}
+
+.input {
+  width: 100%;
+  background: #ffce09;
+  border: 0;
+  min-height: 48px;
+  border-radius: 10px;
+  outline: 0;
+  padding-left: 15px;
+  color: #757575;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+}
+
+.input-date {
+  min-height: 20px;
+}
+
+.action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action-button {
+  --ripple-color: rgb(0, 0, 0, .5);
+  color: #fff;
+}
+
+.action-create {
+  --background: #757575 !important;
+  color: #ffce09;
+  font-weight: bold;
+}

@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Lembrete</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="loadReminders($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <app-reminder-list
+          [title]="'Hoje'"
+          [reminders]="remindersToday$ | async"
+          (deleteReminder)="deleteReminder($event)"
+          (editReminder)="openModalToEditReminder($event)">
+        </app-reminder-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <app-reminder-list
+          [onlyTime]="false"
+          [title]="'Próximos lembretes'"
+          [reminders]="remindersAfterToday$ | async"
+          (deleteReminder)="deleteReminder($event)"
+          (editReminder)="openModalToEditReminder($event)">
+        </app-reminder-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openModalToCreateReminder()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

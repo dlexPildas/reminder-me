@@ -1,0 +1,47 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-back-button></ion-back-button> -->
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="start" [ios]="'arrow-back' + '-outline'" [md]="'arrow-back' + '-sharp'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Criar novo lembrete</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="reminderForm">
+    <div class="box-input">
+      <label>Date</label>
+      <ion-datetime
+        class="input input-date"
+        displayFormat="DD/MM/YYYY HH:mm"
+        pickerFormat="DD/MM/YYYY HH:mm -03:00"
+        min="2021-09-09"
+        max="2025-12-09"
+        display-timezone="utc"
+        formControlName="date">
+      </ion-datetime>
+    </div>
+
+    <div class="box-input">
+      <label>Nome do ícone aqui</label>
+      <input type="text" class="input"  formControlName="icon">
+    </div>
+
+    <div class="box-input">
+      <label>Descrição</label>
+      <textarea class="input"  [rows]="4"  formControlName="description"></textarea>
+    </div>
+
+    <footer class="action">
+      <ion-button *ngIf="!reminderId" (click)="createReminder()" [disabled]="!reminderForm.valid" class="action-button action-create">Criar lembrete</ion-button>
+      <ion-button *ngIf="reminderId" (click)="editReminder()" [disabled]="!reminderForm.valid" class="action-button action-create">Editar lembrete</ion-button>
+    </footer>
+  </form>
+</ion-content>
+
